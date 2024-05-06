@@ -14,6 +14,15 @@
 		AFFD3F1D2BE54DFF000A1AC2 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFD3F1C2BE54DFF000A1AC2 /* SearchVC.swift */; };
 		AFFD3F1F2BE54E3F000A1AC2 /* FavoritesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFD3F1E2BE54E3F000A1AC2 /* FavoritesListVC.swift */; };
 		AFFD3F212BE55CFC000A1AC2 /* GFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFD3F202BE55CFC000A1AC2 /* GFButton.swift */; };
+		AFFD3F242BE7E8DA000A1AC2 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = AFFD3F232BE7E8DA000A1AC2 /* SnapKit */; };
+		AFFD3F262BE7E8DA000A1AC2 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = AFFD3F252BE7E8DA000A1AC2 /* SnapKit-Dynamic */; };
+		AFFD3F282BE7EF7C000A1AC2 /* GFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFD3F272BE7EF7C000A1AC2 /* GFTextField.swift */; };
+		AFFD3F2A2BE81319000A1AC2 /* FollowerListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFD3F292BE81319000A1AC2 /* FollowerListVC.swift */; };
+		AFFD3F2C2BE8199D000A1AC2 /* GFTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFD3F2B2BE8199D000A1AC2 /* GFTitleLabel.swift */; };
+		AFFD3F2E2BE8AA29000A1AC2 /* GFBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFD3F2D2BE8AA29000A1AC2 /* GFBodyLabel.swift */; };
+		AFFD3F302BE8AB4F000A1AC2 /* GFAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFD3F2F2BE8AB4F000A1AC2 /* GFAlertVC.swift */; };
+		AFFD3F322BE8BFE3000A1AC2 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFD3F312BE8BFE3000A1AC2 /* UIViewController+Ext.swift */; };
+		AFFD3F392BE8CB75000A1AC2 /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFD3F382BE8CB75000A1AC2 /* Follower.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +35,13 @@
 		AFFD3F1C2BE54DFF000A1AC2 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		AFFD3F1E2BE54E3F000A1AC2 /* FavoritesListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListVC.swift; sourceTree = "<group>"; };
 		AFFD3F202BE55CFC000A1AC2 /* GFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFButton.swift; sourceTree = "<group>"; };
+		AFFD3F272BE7EF7C000A1AC2 /* GFTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTextField.swift; sourceTree = "<group>"; };
+		AFFD3F292BE81319000A1AC2 /* FollowerListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListVC.swift; sourceTree = "<group>"; };
+		AFFD3F2B2BE8199D000A1AC2 /* GFTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTitleLabel.swift; sourceTree = "<group>"; };
+		AFFD3F2D2BE8AA29000A1AC2 /* GFBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFBodyLabel.swift; sourceTree = "<group>"; };
+		AFFD3F2F2BE8AB4F000A1AC2 /* GFAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAlertVC.swift; sourceTree = "<group>"; };
+		AFFD3F312BE8BFE3000A1AC2 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		AFFD3F382BE8CB75000A1AC2 /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +49,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFFD3F242BE7E8DA000A1AC2 /* SnapKit in Frameworks */,
+				AFFD3F262BE7E8DA000A1AC2 /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,16 +76,63 @@
 		AFDEF8772BE0F4BA0050AA54 /* GitHubFollowers */ = {
 			isa = PBXGroup;
 			children = (
+				AFFD3F372BE8CB5B000A1AC2 /* Model */,
+				AFFD3F352BE8C628000A1AC2 /* Extensions */,
+				AFFD3F342BE8C59A000A1AC2 /* Custom Views */,
+				AFFD3F332BE8C50D000A1AC2 /* Screens */,
+				AFFD3F362BE8C68E000A1AC2 /* Support */,
+				AFDEF8862BE0F4BC0050AA54 /* Info.plist */,
+			);
+			path = GitHubFollowers;
+			sourceTree = "<group>";
+		};
+		AFFD3F332BE8C50D000A1AC2 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				AFFD3F1C2BE54DFF000A1AC2 /* SearchVC.swift */,
+				AFFD3F1E2BE54E3F000A1AC2 /* FavoritesListVC.swift */,
+				AFFD3F292BE81319000A1AC2 /* FollowerListVC.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		AFFD3F342BE8C59A000A1AC2 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				AFFD3F202BE55CFC000A1AC2 /* GFButton.swift */,
+				AFFD3F272BE7EF7C000A1AC2 /* GFTextField.swift */,
+				AFFD3F2B2BE8199D000A1AC2 /* GFTitleLabel.swift */,
+				AFFD3F2D2BE8AA29000A1AC2 /* GFBodyLabel.swift */,
+				AFFD3F2F2BE8AB4F000A1AC2 /* GFAlertVC.swift */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		AFFD3F352BE8C628000A1AC2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AFFD3F312BE8BFE3000A1AC2 /* UIViewController+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		AFFD3F362BE8C68E000A1AC2 /* Support */ = {
+			isa = PBXGroup;
+			children = (
 				AFDEF8782BE0F4BA0050AA54 /* AppDelegate.swift */,
 				AFDEF87A2BE0F4BA0050AA54 /* SceneDelegate.swift */,
 				AFDEF8812BE0F4BC0050AA54 /* Assets.xcassets */,
 				AFDEF8832BE0F4BC0050AA54 /* LaunchScreen.storyboard */,
-				AFDEF8862BE0F4BC0050AA54 /* Info.plist */,
-				AFFD3F1C2BE54DFF000A1AC2 /* SearchVC.swift */,
-				AFFD3F1E2BE54E3F000A1AC2 /* FavoritesListVC.swift */,
-				AFFD3F202BE55CFC000A1AC2 /* GFButton.swift */,
 			);
-			path = GitHubFollowers;
+			path = Support;
+			sourceTree = "<group>";
+		};
+		AFFD3F372BE8CB5B000A1AC2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AFFD3F382BE8CB75000A1AC2 /* Follower.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -86,6 +151,10 @@
 			dependencies = (
 			);
 			name = GitHubFollowers;
+			packageProductDependencies = (
+				AFFD3F232BE7E8DA000A1AC2 /* SnapKit */,
+				AFFD3F252BE7E8DA000A1AC2 /* SnapKit-Dynamic */,
+			);
 			productName = GitHubFollowers;
 			productReference = AFDEF8752BE0F4BA0050AA54 /* GitHubFollowers.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +183,9 @@
 				Base,
 			);
 			mainGroup = AFDEF86C2BE0F4BA0050AA54;
+			packageReferences = (
+				AFFD3F222BE7E8DA000A1AC2 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = AFDEF8762BE0F4BA0050AA54 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -140,9 +212,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFFD3F282BE7EF7C000A1AC2 /* GFTextField.swift in Sources */,
 				AFFD3F1F2BE54E3F000A1AC2 /* FavoritesListVC.swift in Sources */,
 				AFFD3F212BE55CFC000A1AC2 /* GFButton.swift in Sources */,
+				AFFD3F322BE8BFE3000A1AC2 /* UIViewController+Ext.swift in Sources */,
 				AFFD3F1D2BE54DFF000A1AC2 /* SearchVC.swift in Sources */,
+				AFFD3F302BE8AB4F000A1AC2 /* GFAlertVC.swift in Sources */,
+				AFFD3F2E2BE8AA29000A1AC2 /* GFBodyLabel.swift in Sources */,
+				AFFD3F392BE8CB75000A1AC2 /* Follower.swift in Sources */,
+				AFFD3F2C2BE8199D000A1AC2 /* GFTitleLabel.swift in Sources */,
+				AFFD3F2A2BE81319000A1AC2 /* FollowerListVC.swift in Sources */,
 				AFDEF8792BE0F4BA0050AA54 /* AppDelegate.swift in Sources */,
 				AFDEF87B2BE0F4BA0050AA54 /* SceneDelegate.swift in Sources */,
 			);
@@ -363,6 +442,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AFFD3F222BE7E8DA000A1AC2 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AFFD3F232BE7E8DA000A1AC2 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AFFD3F222BE7E8DA000A1AC2 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		AFFD3F252BE7E8DA000A1AC2 /* SnapKit-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AFFD3F222BE7E8DA000A1AC2 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = "SnapKit-Dynamic";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AFDEF86D2BE0F4BA0050AA54 /* Project object */;
 }
