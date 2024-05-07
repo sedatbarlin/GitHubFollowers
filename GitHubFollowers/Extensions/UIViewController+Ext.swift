@@ -5,7 +5,7 @@
 //  Created by Sedat on 6.05.2024.
 //
 
-import UIKit
+import UIKit 
 
 extension UIViewController{
     func presentGFAlertOnMainThread(title: String, message: String, buttonTitle: String){
