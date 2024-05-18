@@ -5,7 +5,7 @@
 //  Created by Sedat on 5.05.2024.
 //
 
-import UIKit   
+import UIKit    
  
 class FollowerListVC: UIViewController {
     
