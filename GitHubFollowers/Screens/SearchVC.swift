@@ -5,7 +5,7 @@
 //  Created by Sedat on 3.05.2024.
 //
 
-import UIKit 
+import UIKit  
 import SnapKit   
 
 class SearchVC: UIViewController {
