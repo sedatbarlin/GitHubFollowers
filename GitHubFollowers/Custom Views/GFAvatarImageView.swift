@@ -25,4 +25,11 @@ class GFAvatarImageView: UIImageView {
         clipsToBounds = true
         image = placeholderImage
     }
+    
+    func downloadImage(from urlString: String){
+        guard let url = URL(string: urlString) else { return }
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            if error != nil { return }
+        }
+    }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF9F9F912BFE3A4900538647 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9F9F902BFE3A4900538647 /* UIHelper.swift */; };
 		AFDEF8792BE0F4BA0050AA54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDEF8782BE0F4BA0050AA54 /* AppDelegate.swift */; };
 		AFDEF87B2BE0F4BA0050AA54 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDEF87A2BE0F4BA0050AA54 /* SceneDelegate.swift */; };
 		AFDEF8822BE0F4BC0050AA54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFDEF8812BE0F4BC0050AA54 /* Assets.xcassets */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AF9F9F902BFE3A4900538647 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		AFDEF8752BE0F4BA0050AA54 /* GitHubFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFDEF8782BE0F4BA0050AA54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFDEF87A2BE0F4BA0050AA54 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				AFFD3F402BEA1616000A1AC2 /* ErrorMessage.swift */,
+				AF9F9F902BFE3A4900538647 /* UIHelper.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				AFFD3F1F2BE54E3F000A1AC2 /* FavoritesListVC.swift in Sources */,
 				AFFD3F212BE55CFC000A1AC2 /* GFButton.swift in Sources */,
 				AFFD3F322BE8BFE3000A1AC2 /* UIViewController+Ext.swift in Sources */,
+				AF9F9F912BFE3A4900538647 /* UIHelper.swift in Sources */,
 				AFFD3F462BEA41EA000A1AC2 /* GFAvatarImageView.swift in Sources */,
 				AFFD3F1D2BE54DFF000A1AC2 /* SearchVC.swift in Sources */,
 				AFFD3F302BE8AB4F000A1AC2 /* GFAlertVC.swift in Sources */,
