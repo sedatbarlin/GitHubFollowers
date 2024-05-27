@@ -5,7 +5,7 @@
 //  Created by Sedat on 7.05.2024.
 //
 
-import UIKit
+import UIKit 
 
 class NetworkManager{
     static let shared = NetworkManager()
