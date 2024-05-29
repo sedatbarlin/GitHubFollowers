@@ -1,8 +1,8 @@
 //
-//  ErrorMessage.swift
+//  GFError.swift
 //  GitHubFollowers
 //
-//  Created by Sedat on 7.05.2024.
+//  Created by Sedat on 29.05.2024.
 //
 
 import Foundation
