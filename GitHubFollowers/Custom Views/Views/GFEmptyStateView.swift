@@ -11,7 +11,6 @@ class GFEmptyStateView: UIView {
     
     let messageLabel = GFTitleLabel(textAlignment: .center, fontSize: 28)
     let logoImageView = UIImageView()
-    let titl
     
     override init(frame: CGRect) {
         super.init(frame: frame)
