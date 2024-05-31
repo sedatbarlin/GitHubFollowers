@@ -7,15 +7,18 @@
 
 import UIKit
 
+protocol UserInfoVCDelegate: AnyObject{
+    func didTapGithubProfile()
+    func didTapGetFollowers()
+}
+
 class UserInfoVC: UIViewController {
-    
     let headerView = UIView()
     let itemViewOne = UIView()
     let itemViewTwo = UIView()
+    let dateLabel = GFBodyLabel(textAlignment: .center)
     var username: String!
     var itemViews: [UIView] = []
-    let padding: CGFloat = 20
-    let itemHeight: CGFloat = 140
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +39,7 @@ class UserInfoVC: UIViewController {
             switch result{
             case .success(let user):
                 DispatchQueue.main.async {
-                    self.add(childVC: GFUserInfoHeaderVC(user: user), to: self.headerView)
+                    self.configureUIElements(with: user)
                 }
             case .failure(let error):
                 self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
@@ -44,8 +47,21 @@ class UserInfoVC: UIViewController {
         }
     }
     
+    func configureUIElements(with user: User){
+        let repoItemVC = GFRepoItemVC(user: user)
+        repoItemVC.delegate = self
+        let followerItemVC = GFFollowerItemVC(user: user)
+        followerItemVC.delegate = self
+        self.add(childVC: GFRepoItemVC(user: user), to: self.itemViewOne)
+        self.add(childVC: GFFollowerItemVC(user: user), to: self.itemViewTwo)
+        self.add(childVC: GFUserInfoHeaderVC(user: user), to: self.headerView)
+        self.dateLabel.text = "Github since \(user.createdAt.convertToDisplayFormat())"
+    }
+    
     func setupUI(){
-        itemViews = [headerView, itemViewOne, itemViewTwo]
+        let padding: CGFloat = 20
+        let itemHeight: CGFloat = 140
+        itemViews = [headerView, itemViewOne, itemViewTwo, dateLabel]
         for itemView in itemViews{
             view.addSubview(itemView)
             itemView.snp.makeConstraints { make in
@@ -68,6 +84,11 @@ class UserInfoVC: UIViewController {
             make.top.equalTo(itemViewOne.snp.bottom).offset(padding)
             make.height.equalTo(itemHeight)
         }
+        
+        dateLabel.snp.makeConstraints { make in
+            make.top.equalTo(itemViewTwo.snp.bottom).offset(padding)
+            make.height.equalTo(18)
+        }
     }
     
     func add(childVC: UIViewController, to containerView: UIView){
@@ -79,5 +100,15 @@ class UserInfoVC: UIViewController {
     
     @objc func dismissVC(){
         dismiss(animated: true)
+    }
+}
+
+extension UserInfoVC: UserInfoVCDelegate{
+    func didTapGithubProfile() {
+        
+    }
+    
+    func didTapGetFollowers() {
+        
     }
 }
