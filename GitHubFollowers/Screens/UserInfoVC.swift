@@ -8,8 +8,8 @@
 import UIKit
 
 protocol UserInfoVCDelegate: AnyObject{
-    func didTapGithubProfile()
-    func didTapGetFollowers()
+    func didTapGithubProfile(for user: User)
+    func didTapGetFollowers(for user: User)
 }
 
 class UserInfoVC: UIViewController {
@@ -18,6 +18,7 @@ class UserInfoVC: UIViewController {
     let itemViewTwo = UIView()
     let dateLabel = GFBodyLabel(textAlignment: .center)
     var username: String!
+    weak var delegate: FollowerListVCDelegate!
     var itemViews: [UIView] = []
     
     override func viewDidLoad() {
@@ -52,8 +53,8 @@ class UserInfoVC: UIViewController {
         repoItemVC.delegate = self
         let followerItemVC = GFFollowerItemVC(user: user)
         followerItemVC.delegate = self
-        self.add(childVC: GFRepoItemVC(user: user), to: self.itemViewOne)
-        self.add(childVC: GFFollowerItemVC(user: user), to: self.itemViewTwo)
+        self.add(childVC: repoItemVC, to: self.itemViewOne)
+        self.add(childVC: followerItemVC, to: self.itemViewTwo)
         self.add(childVC: GFUserInfoHeaderVC(user: user), to: self.headerView)
         self.dateLabel.text = "Github since \(user.createdAt.convertToDisplayFormat())"
     }
@@ -104,11 +105,20 @@ class UserInfoVC: UIViewController {
 }
 
 extension UserInfoVC: UserInfoVCDelegate{
-    func didTapGithubProfile() {
-        
+    func didTapGithubProfile(for user: User) {
+        guard let url = URL(string: user.htmlUrl) else{
+            presentGFAlertOnMainThread(title: "Invalid URL", message: "The url attached to this user is invalid", buttonTitle: "Ok")
+            return
+        }
+        presentSafariVC(with: url)
     }
     
-    func didTapGetFollowers() {
-        
+    func didTapGetFollowers(for user: User) {
+        guard user.followers != 0 else{
+            presentGFAlertOnMainThread(title: "No followers", message: "This user has no followers. What a shame 😢", buttonTitle: "So sad")
+            return
+        }
+        delegate.didRequestFollowers(for: user.login)
+        dismissVC()
     }
 }
