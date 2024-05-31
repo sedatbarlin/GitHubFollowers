@@ -54,9 +54,6 @@ class UserInfoVC: UIViewController {
             }
         }
         
-        itemViewOne.backgroundColor = .systemRed
-        itemViewTwo.backgroundColor = .cyan
-        
         headerView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)
             make.height.equalTo(itemHeight + 40)
@@ -71,7 +68,6 @@ class UserInfoVC: UIViewController {
             make.top.equalTo(itemViewOne.snp.bottom).offset(padding)
             make.height.equalTo(itemHeight)
         }
-        
     }
     
     func add(childVC: UIViewController, to containerView: UIView){
