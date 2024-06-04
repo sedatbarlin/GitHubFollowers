@@ -33,8 +33,7 @@ class FavoriteCell: UITableViewCell {
     
     public func configure(){
         let padding: CGFloat = 12
-        addSubview(avatarImageView)
-        addSubview(usernameLabel)
+        addSubviews(avatarImageView, usernameLabel)
         accessoryType = .disclosureIndicator
         
         avatarImageView.snp.makeConstraints { make in

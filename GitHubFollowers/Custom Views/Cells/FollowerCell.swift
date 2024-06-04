@@ -36,8 +36,7 @@ class FollowerCell: UICollectionViewCell {
     }
     
     private func setupUI(){
-        addSubview(avatarImageView)
-        addSubview(usernameLabel)
+        addSubviews(avatarImageView, usernameLabel)
         
         avatarImageView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(padding)

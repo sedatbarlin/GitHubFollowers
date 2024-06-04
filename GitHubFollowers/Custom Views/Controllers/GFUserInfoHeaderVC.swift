@@ -28,7 +28,6 @@ class GFUserInfoHeaderVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addSubviews()
         setupUI()
         configureUIElements()
     }
@@ -53,16 +52,8 @@ class GFUserInfoHeaderVC: UIViewController {
         }
     }
     
-    func addSubviews(){
-        view.addSubview(avatarImageView)
-        view.addSubview(usernameLabel)
-        view.addSubview(nameLabel)
-        view.addSubview(locationImageView)
-        view.addSubview(locationLabel)
-        view.addSubview(bioLabel)
-    }
-    
     func setupUI(){
+        view.addSubviews(avatarImageView, usernameLabel, nameLabel, locationImageView, locationLabel, bioLabel)
         let padding: CGFloat = 20
         let textImagePadding: CGFloat = 12
         
@@ -103,7 +94,7 @@ class GFUserInfoHeaderVC: UIViewController {
             make.top.equalTo(avatarImageView.snp.bottom).offset(textImagePadding)
             make.leading.equalTo(avatarImageView)
             make.trailing.equalToSuperview()
-            //make.height.equalTo(60)
+            make.height.equalTo(90)
         }
     }
 }

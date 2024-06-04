@@ -37,14 +37,13 @@ class GFAlertVC: UIViewController {
     }
 
     func setupUI(){
-        view.addSubview(containerView)
+        view.addSubviews(containerView, titleLabel, actionButton, messageLabel)
         containerView.snp.makeConstraints { make in
             make.centerX.centerY.equalToSuperview()
             make.width.equalTo(280)
             make.height.equalTo(220)
         }
         
-        containerView.addSubview(titleLabel)
         titleLabel.text = alertTitle ?? "Something went wrong!"
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(containerView.snp.top).offset(padding)
@@ -53,7 +52,6 @@ class GFAlertVC: UIViewController {
             make.height.equalTo(28)
         }
         
-        containerView.addSubview(actionButton)
         actionButton.setTitle(buttonTitle ?? "OK", for: .normal)
         actionButton.addTarget(self, action: #selector(dismissVC), for: .touchUpInside)
         actionButton.snp.makeConstraints { make in
@@ -63,7 +61,6 @@ class GFAlertVC: UIViewController {
             make.height.equalTo(44)
         }
         
-        containerView.addSubview(messageLabel)
         messageLabel.text = message ?? "Unable to complate request"
         messageLabel.numberOfLines = 4
         messageLabel.snp.makeConstraints { make in

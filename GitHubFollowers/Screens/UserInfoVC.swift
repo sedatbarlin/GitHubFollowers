@@ -7,9 +7,8 @@
 
 import UIKit
 
-protocol UserInfoVCDelegate: AnyObject{
-    func didTapGithubProfile(for user: User)
-    func didTapGetFollowers(for user: User)
+protocol UserInfoVCDelegate: AnyObject {
+    func didRequestFollowers(for username: String)
 }
 
 class UserInfoVC: GFDataLoadingVC {
@@ -18,7 +17,7 @@ class UserInfoVC: GFDataLoadingVC {
     let itemViewTwo = UIView()
     let dateLabel = GFBodyLabel(textAlignment: .center)
     var username: String!
-    weak var delegate: FollowerListVCDelegate!
+    weak var delegate: UserInfoVCDelegate!
     var itemViews: [UIView] = []
     
     override func viewDidLoad() {
@@ -49,12 +48,8 @@ class UserInfoVC: GFDataLoadingVC {
     }
     
     func configureUIElements(with user: User){
-        let repoItemVC = GFRepoItemVC(user: user)
-        repoItemVC.delegate = self
-        let followerItemVC = GFFollowerItemVC(user: user)
-        followerItemVC.delegate = self
-        self.add(childVC: repoItemVC, to: self.itemViewOne)
-        self.add(childVC: followerItemVC, to: self.itemViewTwo)
+        self.add(childVC: GFRepoItemVC(user: user, delegate: self), to: self.itemViewOne)
+        self.add(childVC: GFFollowerItemVC(user: user, delegate: self), to: self.itemViewTwo)
         self.add(childVC: GFUserInfoHeaderVC(user: user), to: self.headerView)
         self.dateLabel.text = "Github since \(user.createdAt.convertToMonthYearFormat())"
     }
@@ -73,7 +68,7 @@ class UserInfoVC: GFDataLoadingVC {
         
         headerView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)
-            make.height.equalTo(itemHeight + 40)
+            make.height.equalTo(itemHeight + 70)
         }
         
         itemViewOne.snp.makeConstraints { make in
@@ -88,7 +83,7 @@ class UserInfoVC: GFDataLoadingVC {
         
         dateLabel.snp.makeConstraints { make in
             make.top.equalTo(itemViewTwo.snp.bottom).offset(padding)
-            make.height.equalTo(18)
+            make.height.equalTo(50)
         }
     }
     
@@ -104,7 +99,7 @@ class UserInfoVC: GFDataLoadingVC {
     }
 }
 
-extension UserInfoVC: UserInfoVCDelegate{
+extension UserInfoVC: GFRepoItemVCDelegate{
     func didTapGithubProfile(for user: User) {
         guard let url = URL(string: user.htmlUrl) else{
             presentGFAlertOnMainThread(title: "Invalid URL", message: "The url attached to this user is invalid", buttonTitle: "Ok")
@@ -112,7 +107,9 @@ extension UserInfoVC: UserInfoVCDelegate{
         }
         presentSafariVC(with: url)
     }
-    
+}
+
+extension UserInfoVC: GFFollowerItemVCDelegate{
     func didTapGetFollowers(for user: User) {
         guard user.followers != 0 else{
             presentGFAlertOnMainThread(title: "No followers", message: "This user has no followers. What a shame 😢", buttonTitle: "So sad")

@@ -45,7 +45,7 @@ class SearchVC: UIViewController {
     }
     
     func setupUI(){
-        view.addSubview(logoImageView)
+        view.addSubviews(logoImageView, usernameTextField, callToActionButton)
         logoImageView.image = Images.ghLogo
         let topConstraintConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 20 : 80
         logoImageView.snp.makeConstraints { make in
@@ -54,7 +54,6 @@ class SearchVC: UIViewController {
             make.height.width.equalTo(200)
         }
         
-        view.addSubview(usernameTextField)
         usernameTextField.delegate = self
         usernameTextField.snp.makeConstraints { make in
             make.top.equalTo(logoImageView.snp.bottom).offset(48)
@@ -63,7 +62,6 @@ class SearchVC: UIViewController {
             make.height.equalTo(50)
         }
         
-        view.addSubview(callToActionButton)
         callToActionButton.addTarget(self, action: #selector(pushFollowerListVC), for: .touchUpInside)
         callToActionButton.snp.makeConstraints { make in
             make.bottom.equalToSuperview().inset(120)
