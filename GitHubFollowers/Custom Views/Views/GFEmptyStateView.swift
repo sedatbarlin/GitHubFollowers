@@ -42,7 +42,7 @@ class GFEmptyStateView: UIView {
         
         let logoBottomConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 80 : 40
         logoImageView.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().offset(logoBottomConstant)
+            make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).offset(logoBottomConstant)
             make.width.equalToSuperview().multipliedBy(1.3)
             make.height.equalTo(self.snp.width).multipliedBy(1.3)
             make.trailing.equalToSuperview().offset(170)
