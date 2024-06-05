@@ -12,8 +12,7 @@ protocol ItemInfoVCDelegate: AnyObject{
     func didTapGetFollowers(for user: User)
 }
 
-class GFItemInfoVC: UIViewController {
-    
+class GFItemInfoVC: UIViewController { 
     let stackView = UIStackView()
     let itemInfoViewOne = GFItemInfoView()
     let itemInfoViewTwo = GFItemInfoView()

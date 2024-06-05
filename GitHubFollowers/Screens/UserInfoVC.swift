@@ -6,12 +6,15 @@
 //
 
 import UIKit
+import SnapKit
 
 protocol UserInfoVCDelegate: AnyObject {
     func didRequestFollowers(for username: String)
 }
 
 class UserInfoVC: GFDataLoadingVC {
+    let scrollView = UIScrollView()
+    let contentView = UIView()
     let headerView = UIView()
     let itemViewOne = UIView()
     let itemViewTwo = UIView()
@@ -23,6 +26,7 @@ class UserInfoVC: GFDataLoadingVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
+        configureScrollView()
         setupUI()
         getUserInfo()
     }
@@ -33,16 +37,29 @@ class UserInfoVC: GFDataLoadingVC {
         navigationItem.rightBarButtonItem = doneButton
     }
     
+    func configureScrollView(){
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        scrollView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        contentView.snp.makeConstraints { make in
+            make.edges.equalTo(scrollView)
+            make.width.equalTo(scrollView)
+        }
+    }
+    
     func getUserInfo(){
-        NetworkManager.shared.getUserInfo(for: username) { [weak self] result in
-            guard let self = self else { return }
-            switch result{
-            case .success(let user):
-                DispatchQueue.main.async {
-                    self.configureUIElements(with: user)
+        Task{
+            do{
+                let user = try await NetworkManager.shared.getUserInfo(for: username)
+                configureUIElements(with: user)
+            } catch{
+                if let gfError = error as? GFError{
+                    presentGFAlert(title: "Something Went Wrong", message: gfError.rawValue, buttonTitle: "Ok")
+                } else{
+                    presentDefaultError()
                 }
-            case .failure(let error):
-                self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
             }
         }
     }
@@ -59,15 +76,15 @@ class UserInfoVC: GFDataLoadingVC {
         let itemHeight: CGFloat = 140
         itemViews = [headerView, itemViewOne, itemViewTwo, dateLabel]
         for itemView in itemViews{
-            view.addSubview(itemView)
+            contentView.addSubview(itemView)
             itemView.snp.makeConstraints { make in
-                make.leading.equalToSuperview().offset(padding)
-                make.trailing.equalToSuperview().inset(padding)
+                make.leading.equalTo(contentView).offset(padding)
+                make.trailing.equalTo(contentView).inset(padding)
             }
         }
         
         headerView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.top.equalTo(contentView.safeAreaLayoutGuide)
             make.height.equalTo(itemHeight + 70)
         }
         
@@ -84,6 +101,7 @@ class UserInfoVC: GFDataLoadingVC {
         dateLabel.snp.makeConstraints { make in
             make.top.equalTo(itemViewTwo.snp.bottom).offset(padding)
             make.height.equalTo(50)
+            make.bottom.equalToSuperview()
         }
     }
     
@@ -102,7 +120,7 @@ class UserInfoVC: GFDataLoadingVC {
 extension UserInfoVC: GFRepoItemVCDelegate{
     func didTapGithubProfile(for user: User) {
         guard let url = URL(string: user.htmlUrl) else{
-            presentGFAlertOnMainThread(title: "Invalid URL", message: "The url attached to this user is invalid", buttonTitle: "Ok")
+            presentGFAlert(title: "Invalid URL", message: "The url attached to this user is invalid", buttonTitle: "Ok")
             return
         }
         presentSafariVC(with: url)
@@ -112,7 +130,7 @@ extension UserInfoVC: GFRepoItemVCDelegate{
 extension UserInfoVC: GFFollowerItemVCDelegate{
     func didTapGetFollowers(for user: User) {
         guard user.followers != 0 else{
-            presentGFAlertOnMainThread(title: "No followers", message: "This user has no followers. What a shame 😢", buttonTitle: "So sad")
+            presentGFAlert(title: "No followers", message: "This user has no followers. What a shame 😢", buttonTitle: "So sad")
             return
         }
         delegate.didRequestFollowers(for: user.login)

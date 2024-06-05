@@ -26,4 +26,10 @@ class GFAvatarImageView: UIImageView {
         clipsToBounds = true
         image = placeholderImage
     }
+    
+    func downloadImage(fromURL url: String){
+        Task{
+            image = await NetworkManager.shared.downloadImage(from: url) ?? placeholderImage
+        }
+    }
 }
