@@ -1,5 +1,8 @@
 <h1 align="center"> Github Followers </h1>
-<h4 align="center"> Sean Allen's iOS Course Github Followers 🎈 <h4>
+<h4 align="center">
+  <a href="https://seanallen.teachable.com/courses/enrolled/681906" target="_blank">Sean Allen's iOS Course Github Followers 🎈</a>
+</h4>
+
 
 | :fire: Implemented Using | :rocket: Features |
 | --- | --- |
@@ -25,15 +28,21 @@
 
 ## 📸 Screenshots
 
-<img width="200" alt="1" src="https://github.com/sedatbarlin/GitHubFollowers/assets/71966913/9b790d04-93ad-4673-9074-29d109cd0b66">
-<img width="200" alt="2" src="https://github.com/sedatbarlin/GitHubFollowers/assets/71966913/db784a4c-1809-42c2-8121-9955f74bbf3e">
-<img width="200" alt="3" src="https://github.com/sedatbarlin/GitHubFollowers/assets/71966913/f7e0465f-44ab-4fde-a111-419faebfa991">
-<img width="200" alt="4" src="https://github.com/sedatbarlin/GitHubFollowers/assets/71966913/14ae76d2-08ed-482d-90ff-7caf13cd2d47">
-<img width="200" alt="5" src="https://github.com/sedatbarlin/GitHubFollowers/assets/71966913/25cf76ff-1da8-49fc-a31a-838240ed6faa">
-<img width="200" alt="6" src="https://github.com/sedatbarlin/GitHubFollowers/assets/71966913/f2b56a5f-d09b-47f8-88f4-16923c2bab09">
-<img width="200" alt="7" src="https://github.com/sedatbarlin/GitHubFollowers/assets/71966913/f284ea32-52fb-4bc9-8132-74cc973fc0b4">
-<img width="200" alt="8" src="https://github.com/sedatbarlin/GitHubFollowers/assets/71966913/a859f465-c855-4f44-b431-0e5202934c02">
+<img width="200" alt="1" src="https://github.com/sedatbarlin/GitHubFollowers/assets/71966913/8179cd2e-4d91-46cd-819b-d57e2c0bddd9">
+<img width="200" alt="2" src="https://github.com/sedatbarlin/GitHubFollowers/assets/71966913/f5b29e83-1078-4059-966f-ca485e921f35">
+<img width="200" alt="3" src="https://github.com/sedatbarlin/GitHubFollowers/assets/71966913/c0241f36-a347-4ea2-9719-1c1138218874">
+<img width="200" alt="4" src="https://github.com/sedatbarlin/GitHubFollowers/assets/71966913/a5848db6-ab56-4ba8-9b18-bc636bea76b4">
+<img width="200" alt="5" src="https://github.com/sedatbarlin/GitHubFollowers/assets/71966913/27def6cc-2c80-4ca9-a649-5c0adbf9a1bb">
+<img width="200" alt="6" src="https://github.com/sedatbarlin/GitHubFollowers/assets/71966913/a6cb3d9f-f3d5-42a4-8e44-fa91eb1af474">
+<img width="200" alt="7" src="https://github.com/sedatbarlin/GitHubFollowers/assets/71966913/1aacb1b3-591f-4743-8321-513fe8233520">
+<img width="200" alt="8" src="https://github.com/sedatbarlin/GitHubFollowers/assets/71966913/eb0fea0b-2922-4413-9ec9-6f08e1f6cb42">
+<img width="200" alt="5" src="https://github.com/sedatbarlin/GitHubFollowers/assets/71966913/c4c1210e-d67a-4105-9afe-9c4b037e4829">
+<img width="200" alt="6" src="https://github.com/sedatbarlin/GitHubFollowers/assets/71966913/6dbd4398-409f-4641-ae65-8dc71654dbde">
+<img width="200" alt="7" src="https://github.com/sedatbarlin/GitHubFollowers/assets/71966913/360b866f-c194-4278-8da8-b7dd2ee4a462">
+<img width="200" alt="8" src="https://github.com/sedatbarlin/GitHubFollowers/assets/71966913/fdbe5791-972a-48cf-b1c6-749676a3e805">
   
 ## 🎥 App introduction video
+
+https://github.com/sedatbarlin/GitHubFollowers/assets/71966913/f94ac296-9859-4a53-b848-88a6aa858db6
 
 
