@@ -27,6 +27,7 @@ class FavoritesListVC: GFDataLoadingVC {
         view.backgroundColor = .systemBackground
         title = "Favorites"
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(clearFavoritesTapped))
     }
     
     func configureTableView() {
@@ -57,6 +58,45 @@ class FavoritesListVC: GFDataLoadingVC {
                 DispatchQueue.main.async {
                     self.presentGFAlert(title: "Something went wrong!", message: error.rawValue, buttonTitle: "Ok")
                 }
+            }
+        }
+    }
+    
+//    @objc func clearFavoritesTapped() {
+//        PersistenceManager.clearAllFavorites { [weak self] error in
+//            guard let self else { return }
+//            if let error {
+//                self.presentGFAlert(title: "Unable to clear favorites", message: error.rawValue, buttonTitle: "Ok")
+//            } else {
+//                presentGFAlert(title: "Clear Favorites List", message: "Favorites list will be cleared, are you sure?", buttonTitle: "Yes"){
+//                    self.favorites.removeAll()
+//                    DispatchQueue.main.async {
+//                        self.tableView.reloadData()
+//                        self.showEmptyStateView(with: "No Favorites?\nAdd one on the follower screen 😘", in: self.view)
+//                    }
+//                }
+//            }
+//        }
+//    }
+    
+    @objc func clearFavoritesTapped() {
+        PersistenceManager.clearAllFavorites { [weak self] error in
+            guard let self = self else { return }
+            if let error = error {
+                self.presentGFAlert(title: "Unable to clear favorites", message: error.rawValue, buttonTitle: "Ok")
+            } else {
+                self.presentGFAlert(
+                    title: "Clear Favorites List",
+                    message: "Favorites list will be cleared, are you sure?",
+                    buttonTitle: "Cancel",
+                    yesButtonAction: {
+                        self.favorites.removeAll()
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                            self.showEmptyStateView(with: "No Favorites?\nAdd one on the follower screen 😘", in: self.view)
+                        }
+                    }
+                )
             }
         }
     }

@@ -63,4 +63,10 @@ enum PersistenceManager{
             return .unableToFavorite
         }
     }
+    
+    static func clearAllFavorites(completion: @escaping (GFError?) -> Void) {
+        let defaults = UserDefaults.standard
+        defaults.removeObject(forKey: Keys.favorites)
+        completion(nil)
+    }
 }
