@@ -1,9 +1,7 @@
 <h1 align="center"> Github Followers </h1>
 <h4 align="center"> Sean Allen's iOS Course Github Followers 🎈 <h4>
 
-## :fire: Implemented Using 
-  
-| Implemented Using | Features |
+| :fire: Implemented Using | :rocket: Features |
 | --- | --- |
 | - 100% programmatic UI - no storyboards | - Search Github users by username |
 | - Only SnapKit as a third party | - View the user's followers |
@@ -24,8 +22,6 @@
 | - Dynamic Type | |
 | - SFSymbols | |
 | - Delegates/Protocols | |
-
-## :rocket: Features
 
 ## 📸 Screenshots
 
