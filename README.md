@@ -3,28 +3,27 @@
   <a href="https://seanallen.teachable.com/courses/enrolled/681906" target="_blank">Sean Allen's iOS Course Github Followers 🎈</a>
 </h4>
 
-
 | :fire: Implemented Using | :rocket: Features |
 | --- | --- |
-| - 100% programmatic UI - no storyboards | - Search Github users by username |
-| - Only SnapKit as a third party | - View the user's followers |
-| - Codable to parse JSON | - View followers' profiles |
-| - Memory management | - Adding and deleting users to favorites |
-| - Caching images | - Search by usernames |
-| - Pagination | - Listing followers in Collection View |
-| - Empty States | - Custom Views, Custom Alerts |
-| - Handling Errors | - Network Calls, API, JSON |
-| - Collection Views with Diffable Data Source | - ARC, Memory Leaks, Capture Lists |
-| - Search Controller | - Pagination, Loading View, Empty State View, UIContentUnavailableView |
-| - Project Organization | - Date Conversions |
-| - Composition & avoiding massive view controllers | - Button Functionality - Delegates & Protocols|
-| - Child View Controllers | UITabBarController, Screen Sizes, Constants |
-| - Dark/Light mode | Positioning for different iphone models - iPhone SE |
-| - Persistence | SwiftUI in UIKit Cells, UIHostingConfiguration #available|
-| - Storing favorites | Initial Run, Fix Warnings, Asset Resource, Code Cleanup |
-| - Dynamic Type | |
-| - SFSymbols | |
-| - Delegates/Protocols | |
+| 100% programmatic UI - no storyboards | Search Github users by username |
+| Only SnapKit as a third party | View the user's followers |
+| Codable to parse JSON | View followers' profiles |
+| Memory management | Adding and deleting users to favorites |
+| Caching images | Search by usernames |
+| Pagination | Listing followers in Collection View |
+| Empty States | Custom Views, Custom Alerts |
+| Handling Errors | Network Calls, API, JSON |
+| Collection Views with Diffable Data Source | ARC, Memory Leaks, Capture Lists |
+| Search Controller | Pagination, Loading View, Empty State View, UIContentUnavailableView |
+| Project Organization | Date Conversions |
+| Composition & avoiding massive view controllers | Button Functionality - Delegates & Protocols|
+| Child View Controllers | UITabBarController, Screen Sizes, Constants |
+| Dark/Light mode | Positioning for different iphone models - iPhone SE |
+| Persistence | SwiftUI in UIKit Cells, UIHostingConfiguration #available|
+| Storing favorites | Initial Run, Fix Warnings, Asset Resource, Code Cleanup |
+| Dynamic Type | |
+| SFSymbols | |
+| Delegates/Protocols | |
 
 ## 📸 Screenshots
 
