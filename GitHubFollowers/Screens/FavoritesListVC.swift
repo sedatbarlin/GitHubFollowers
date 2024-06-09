@@ -23,6 +23,18 @@ class FavoritesListVC: GFDataLoadingVC {
         getFavorites()
     }
     
+    override func updateContentUnavailableConfiguration(using state: UIContentUnavailableConfigurationState) {
+        if favorites.isEmpty{
+            var config = UIContentUnavailableConfiguration.empty()
+            config.image = .init(systemName: "star")
+            config.text = "No Favorites"
+            config.secondaryText = "Add a favorite on the follower list screen"
+            contentUnavailableConfiguration = config
+        } else{
+            contentUnavailableConfiguration = nil
+        }
+    }
+    
     func configureViewController() {
         view.backgroundColor = .systemBackground
         title = "Favorites"
@@ -45,14 +57,11 @@ class FavoritesListVC: GFDataLoadingVC {
             guard let self else { return }
             switch result {
             case .success(let favorites):
-                if favorites.isEmpty {
-                    self.showEmptyStateView(with: "No Favorites?\nAdd one on the follower screen 😘", in: self.view)
-                } else {
-                    self.favorites = favorites
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                        self.view.bringSubviewToFront(self.tableView)
-                    }
+                self.favorites = favorites
+                setNeedsUpdateContentUnavailableConfiguration()
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    self.view.bringSubviewToFront(self.tableView)
                 }
             case .failure(let error):
                 DispatchQueue.main.async {
@@ -61,23 +70,6 @@ class FavoritesListVC: GFDataLoadingVC {
             }
         }
     }
-    
-//    @objc func clearFavoritesTapped() {
-//        PersistenceManager.clearAllFavorites { [weak self] error in
-//            guard let self else { return }
-//            if let error {
-//                self.presentGFAlert(title: "Unable to clear favorites", message: error.rawValue, buttonTitle: "Ok")
-//            } else {
-//                presentGFAlert(title: "Clear Favorites List", message: "Favorites list will be cleared, are you sure?", buttonTitle: "Yes"){
-//                    self.favorites.removeAll()
-//                    DispatchQueue.main.async {
-//                        self.tableView.reloadData()
-//                        self.showEmptyStateView(with: "No Favorites?\nAdd one on the follower screen 😘", in: self.view)
-//                    }
-//                }
-//            }
-//        }
-//    }
     
     @objc func clearFavoritesTapped() {
         PersistenceManager.clearAllFavorites { [weak self] error in
@@ -128,7 +120,7 @@ extension FavoritesListVC: UITableViewDelegate, UITableViewDataSource {
                 self.favorites.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .left)
                 if self.favorites.isEmpty{
-                    self.showEmptyStateView(with: "No Favorites?\nAdd one on the follower screen 😘", in: self.view)
+                    setNeedsUpdateContentUnavailableConfiguration()
                 }
                 return
             }
